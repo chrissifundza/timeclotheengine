@@ -1,7 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Appbar from '../components/appbar'
-
+import Axios from 'axios';
+import swal from 'sweetalert'
 export const ContactUs = () => {
+  const [Name, setName] = useState('');
+  const [Email, setEmail] = useState('');
+  const [Message, setMessage] = useState('');
+
+  function handleSubmit(){
+    Axios.post('http://localhost:3001/contactemail',{
+      Name:Name,  
+      Email:Email,
+      Message:Message
+    }).then((response)=>{
+      swal("Success","Message successfully sent","success")
+      
+    })
+  }
   return (
     
     <>
@@ -30,21 +45,21 @@ export const ContactUs = () => {
       </div>
       <div className="right-side">
         <div className="topic-text">Send us a message</div>
-        <p>If you have any questions or any types of quries related to Timely Clothe Engine, you can send me message from here. It's my pleasure to help you.</p>
-      <form action="#">
+        <p>If you have any questions or any type of quries related to Timely Clothe Engine, you can send us a message from here. It's our pleasure to help you.</p>
+      <div>
         <div className="input-box">
-          <input type="text" placeholder="Enter your name"/>
+          <input type="text" onChange={(e)=> setName(e.target.value)} placeholder="Enter your name"/>
         </div>
         <div className="input-box">
-          <input type="text" placeholder="Enter your email"/>
+          <input type="text" onChange={(e)=> setEmail(e.target.value)} placeholder="Enter your email"/>
         </div>
         <div className="input-box message-box">
-        <textarea id="w3review" name="w3review" rows="4" cols="50"/>
+        <textarea onChange={(e)=> setMessage(e.target.value)} id="w3review" name="w3review" rows="4" cols="50"/>
         </div>
         <div className="button">
-          <input type="button" value="Send Now" />
+          <input type="button" onClick={handleSubmit} value="Send Now" />
         </div>
-      </form>
+      </div>
     </div>
     </div>
   </div> 

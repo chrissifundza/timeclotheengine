@@ -130,7 +130,7 @@ else{
   };
   
   function payMent(){
-    Axios.post('https://timelyclotheengine.herokuapp.com/payment',{
+    Axios.post('http://localhost:3001/payment',{
       CardName:CardName,
       CardNumber: CardNumber,
       ExpiryDate: ExpiryDate,
@@ -142,7 +142,7 @@ else{
     })
   }
   function createOrder() {
-    Axios.post('https://timelyclotheengine.herokuapp.com/placeorder',{
+    Axios.post('http://localhost:3001/placeorder',{
       Email:currentUserEmail,
       Products: CombinedProducts.join(", "),
       Address: CombinedAddress.join(", "),
@@ -173,7 +173,7 @@ function generateString(length) {
 
 
 function sendEmail1(reference){
-  Axios.post('https://timelyclotheengine.herokuapp.com/orderemail',{
+  Axios.post('http://localhost:3001/orderemail',{
     Email:currentUserEmail,
     Reference:reference
   }).then((response)=>{

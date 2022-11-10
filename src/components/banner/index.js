@@ -38,8 +38,8 @@ console.log(Place)
         </BannerTitle>
 
         <BannerDescription variant="subtitle">
-          Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo
-          tempor incididunt ut labore et dolore magna
+          Black Friday is here, Get Up to 50% discount on your next purchase, Hurry
+          the more you buy the more you save, start budgeting wise.
         </BannerDescription>
 
        

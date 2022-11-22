@@ -173,7 +173,7 @@ function generateString(length) {
 
 
 function sendEmail1(reference){
-  Axios.post('http://localhost:3001/orderemail',{
+  Axios.post('https://timelyclotheengine.herokuapp.com/orderemail',{
     Email:currentUserEmail,
     Reference:reference
   }).then((response)=>{

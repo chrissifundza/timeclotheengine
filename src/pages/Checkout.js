@@ -130,7 +130,7 @@ else{
   };
   
   function payMent(){
-    Axios.post('http://localhost:3001/payment',{
+    Axios.post('https://timelyclotheengine.herokuapp.com/payment',{
       CardName:CardName,
       CardNumber: CardNumber,
       ExpiryDate: ExpiryDate,
@@ -142,7 +142,7 @@ else{
     })
   }
   function createOrder() {
-    Axios.post('http://localhost:3001/placeorder',{
+    Axios.post('https://timelyclotheengine.herokuapp.com/placeorder',{
       Email:currentUserEmail,
       Products: CombinedProducts.join(", "),
       Address: CombinedAddress.join(", "),

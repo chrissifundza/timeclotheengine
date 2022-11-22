@@ -1,12 +1,14 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Appbar from '../components/appbar';
 import Products from "../components/products";
 import { useLocation } from 'react-router-dom';
-import { Container, Paper } from '@mui/material';
+import { Container, FormControl, InputLabel, MenuItem, Paper, Select } from '@mui/material';
 import AppBar3 from '../components/appbar/appBar3';
+import { useUIContext } from "../context/ui";
  const Product = () => {
   const location = useLocation();
-  
+  const { setCart,Prot,SortP, setSortP, 
+    setProt} = useUIContext();
   return (
     <div>
       <AppBar3 />
@@ -36,8 +38,11 @@ import AppBar3 from '../components/appbar/appBar3';
             
             </div>
       </div>
+      
       </Paper>
+     
       </Container>
+     
         <Products shop={location.state.shop[0].ShopName}/>
     </div>
   )

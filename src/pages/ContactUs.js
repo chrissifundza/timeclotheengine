@@ -1,14 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Appbar from '../components/appbar'
 import Axios from 'axios';
 import swal from 'sweetalert'
+import { useUIContext } from '../context/ui';
 export const ContactUs = () => {
   const [Name, setName] = useState('');
   const [Email, setEmail] = useState('');
   const [Message, setMessage] = useState('');
-
+  const { setCart} = useUIContext();
+  useEffect(()=>{
+    let cartData= localStorage.getItem("Cart");
+    let data=JSON.parse(cartData);
+    if(data){
+       setCart(data);
+    }
+  },[])
   function handleSubmit(){
-    Axios.post('http://localhost:3001/contactemail',{
+    Axios.post('https://timelyclotheengine.herokuapp.com/contactemail',{
       Name:Name,  
       Email:Email,
       Message:Message

@@ -51,8 +51,8 @@ import { useUIContext } from "../context/ui";
               <TableRow >
               <TableCell sx={{fontWeight:"Bold"}} >Order No.</TableCell>
                 <TableCell sx={{fontWeight:"Bold"}}>Items Ordered</TableCell>
-               
-                
+                <TableCell sx={{fontWeight:"Bold"}}>Driver Name</TableCell>
+                <TableCell sx={{fontWeight:"Bold"}}>Driver Cell No.</TableCell>
                 <TableCell sx={{fontWeight:"Bold"}} align="right">Total Amount</TableCell>
                 <TableCell sx={{fontWeight:"Bold"}} align="right">Status</TableCell>
               </TableRow>
@@ -63,6 +63,12 @@ import { useUIContext } from "../context/ui";
                   <TableCell >{count=count+1}</TableCell>
                   <TableCell component="th" scope="row">
                     {row.Products}
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    {row.DriverName}
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    {row.DriverCell}
                   </TableCell>
                   <TableCell align="right">R{row.Total}</TableCell>
                   <TableCell align="right">{row.Status}</TableCell>

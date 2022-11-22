@@ -11,10 +11,11 @@ import { useUIContext } from "../../context/ui";
 export default  function Products({shop}) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
-  const { setCart,Prot, 
+  const { setCart,Prot,SortP, setSortP, 
     setProt} = useUIContext();
   const [Pro, setPro] = useState([]);
  let newItem= Pro.filter((s)=> s.ShopName==shop)
+
 useEffect(()=>{
    Axios.get("https://timelyclotheengine.herokuapp.com/products").then((res)=>{
     console.log(res.data) 
@@ -28,7 +29,7 @@ useEffect(()=>{
    }
   ; 
 },[])
-   console.log(shop)
+   
    
   const renderProducts = newItem.filter((s)=> s.ProductName.toLowerCase().includes(Prot.toLowerCase())).map((product) => (
     <Grid item key={product.idshopsproducts} xs={2} sm={4} md={4} display="flex" flexDirection={'column'} alignItems="center">
@@ -39,6 +40,8 @@ useEffect(()=>{
       )}
     </Grid>
   ));
+
+
   return (
     <Container>
       <Grid        
@@ -48,7 +51,8 @@ useEffect(()=>{
         sx={{ margin: `20px 4px 10px 4px` }}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
-        {renderProducts}
+         {renderProducts}
+      
       </Grid>
     </Container>
   );

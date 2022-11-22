@@ -7,6 +7,7 @@ import {
   Button,
   Stack,
   Container,
+  Link,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { Colors } from "../../styles/theme";
@@ -15,7 +16,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { SubscribeTf, FooterTitle } from "../../styles/footer";
 import SendIcon from "@mui/icons-material/Send";
-
+import swal from 'sweetalert';
 export default function Footer() {
   return (
     <Box
@@ -32,9 +33,8 @@ export default function Footer() {
         <Grid item md={6} lg={4}>
           <FooterTitle variant="body1">About us</FooterTitle>
           <Typography variant="caption2">
-            Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor
-            incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud.
+            Timeley Clothe Engine is a global fashion and lifestyle e-retailer 
+						committed to making the beauty of fashion accessible to all. 
           </Typography>
           <Box
             sx={{
@@ -42,27 +42,28 @@ export default function Footer() {
               color: Colors.dove_gray,
             }}
           >
-            <FacebookIcon sx={{ mr: 1 }} />
+          <Link sx={{color:"white"}}  href="https://www.facebook.com/tceengine?mibextid=LQQJ4d">  <FacebookIcon sx={{ mr: 1 }} /></Link>
             <TwitterIcon sx={{ mr: 1 }} />
-            <InstagramIcon />
+            <Link sx={{color:"white"}}  href="https://instagram.com/timelyclotheengine?igshid=NTdlMDg3MTY=">   <InstagramIcon /> </Link>
           </Box>
         </Grid>
         <Grid item md={6} lg={2}>
-          <FooterTitle variant="body1">information</FooterTitle>
+          <FooterTitle variant="body1">Information</FooterTitle>
           <List>
             <ListItemText>
               <Typography lineHeight={2} variant="caption2">
-                About Us
+                <Link sx={{color:"white"}} href="/aboutus">About Us</Link>
               </Typography>
             </ListItemText>
             <ListItemText>
               <Typography lineHeight={2} variant="caption2">
-                Order Tracking
+              <Link sx={{color:"white"}} href="/orders">Order Tracking</Link>
+                
               </Typography>
             </ListItemText>
             <ListItemText>
               <Typography lineHeight={2} variant="caption2">
-                Privacy &amp; Policy
+              <Link sx={{color:"white"}} href="/contactus">Contact Us</Link>
               </Typography>
             </ListItemText>
             <ListItemText>
@@ -77,24 +78,10 @@ export default function Footer() {
           <List>
             <ListItemText>
               <Typography lineHeight={2} variant="caption2">
-                Login
+              <Link sx={{color:"white"}} href="/profile">Profile</Link>
               </Typography>
             </ListItemText>
-            <ListItemText>
-              <Typography lineHeight={2} variant="caption2">
-                My Cart
-              </Typography>
-            </ListItemText>
-            <ListItemText>
-              <Typography lineHeight={2} variant="caption2">
-                My Account
-              </Typography>
-            </ListItemText>
-            <ListItemText>
-              <Typography lineHeight={2} variant="caption2">
-                Wishlist
-              </Typography>
-            </ListItemText>
+            
           </List>
         </Grid>
         <Grid item md={6} lg={4}>
@@ -109,6 +96,7 @@ export default function Footer() {
               startIcon={<SendIcon sx={{ color: Colors.white }} />}
               sx={{ mt: 4, mb: 4 }}
               variant="contained"
+              onClick={()=>swal("Success","successfully subscribed","success")}
             >
               Subscribe
             </Button>

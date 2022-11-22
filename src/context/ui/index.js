@@ -33,7 +33,9 @@ export const UIProvider = ({ children }) => {
     const [LoggedUserMy, setLoggedUserMy] = useState('')
     const [UserName, setUserName] = useState('');
     const [LastName, setLastName] = useState('');
+    const [Photo, setPhoto] = useState("https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg")
     const [ID, setID] = useState(0)
+    const [SortP, setSortP] = useState('')
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -87,7 +89,9 @@ export const UIProvider = ({ children }) => {
             console.log(response.data)
             setUserName(response.data[0].Name)
             setLastName(response.data[0].LastName)
+            setPhoto(response.data[0].UserPhoto)
             setID(response.data[0].idusers)
+
          return response.data
          }
         
@@ -148,7 +152,7 @@ export const UIProvider = ({ children }) => {
         setLoggedUserMy,
         LastName, 
         setLastName,
-        UserName, setUserName
+        UserName, setUserName,Photo, setPhoto,SortP, setSortP
     };
 
     return <UIContext.Provider value={value}>{children}</UIContext.Provider>

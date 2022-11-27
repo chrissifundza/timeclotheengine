@@ -5,7 +5,7 @@ import { Colors } from '../../styles/theme';
 import { useUIContext } from "../../context/ui";
 import { Box } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
-
+import DeleteIcon from '@mui/icons-material/Delete';
 export const Cart = () => {
 
     const {Cart, setShowCart, ShowCart,TotalPrice, 

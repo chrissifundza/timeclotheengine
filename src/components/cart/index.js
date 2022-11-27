@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 export const Cart = () => {
 
     const {Cart, setShowCart, ShowCart,TotalPrice, 
-        setTotalPrice } = useUIContext();
+        setTotalPrice, setCart } = useUIContext();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("md"))
     let total = 0;
@@ -19,7 +19,11 @@ export const Cart = () => {
        total= total+ parseInt(item.ProductPrice)
     
     });
-   
+    const removeCartItem = (id)=>{
+let newItemCart = Cart.filter((item)=> item.idshopsproducts !==id)
+setCart(newItemCart)
+localStorage.setItem("Cart",JSON.stringify(newItemCart))
+    }
     
     const cartContent = Cart.map(item=>(
         <Box key={item.idshopsproducts}>
@@ -39,6 +43,10 @@ export const Cart = () => {
                  </Box>
                  <Typography variant="body1" justifyContent={"end"}>
                     R{item.ProductPrice}
+                 </Typography>
+                
+                 <Typography sx={{cursor:"pointer"}} onClick={()=>removeCartItem(item.idshopsproducts)}> 
+                    <DeleteIcon/>
                  </Typography>
             </Box>
             <Divider variant='inset'/>

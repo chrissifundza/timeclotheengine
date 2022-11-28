@@ -141,7 +141,7 @@ else{
       createOrder()
     })
   }
-  function createOrder() {
+ function createOrder() {
     Axios.post('https://timelyclotheengine.herokuapp.com/placeorder',{
       Email:currentUserEmail,
       Products: CombinedProducts.join(", "),
@@ -152,6 +152,29 @@ else{
       idusers:ID
      
     }).then((response)=>{
+      
+      
+   //   generateString(10);
+   getOrder() 
+    })
+  }
+let last = 0
+  function getOrder() {
+    Axios.get("https://timelyclotheengine.herokuapp.com/orders").then((res)=>{
+      console.log(res.data) 
+     let totalOrders = res.data.length - 1
+     console.log(totalOrders)
+     console.log(res.data[totalOrders].idorders)
+      
+      last = res.data[totalOrders].idorders
+      OrderedProduct()
+     })
+     
+    
+  }
+  function OrderedProduct(){
+  
+    Axios.post('https://timelyclotheengine.herokuapp.com/addorderedproduct',{array:arrayData,orderid:last}).then((response)=>{
       
       
       generateString(10);

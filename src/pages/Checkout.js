@@ -128,7 +128,9 @@ else{
     console.log(activeStep);
     
   };
-  
+  const data= localStorage.getItem("Cart")
+  let arrayData = JSON.parse(data)
+  console.log(arrayData)
   function payMent(){
     Axios.post('https://timelyclotheengine.herokuapp.com/payment',{
       CardName:CardName,
